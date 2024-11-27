@@ -34,22 +34,22 @@ public class PersonaController {
     public int searchBinaryByEdad(Persona[] personas, int edad) {
         int left = 0;
         int right = personas.length - 1;
-        
+    
         while (left <= right) {
-            int mitad = left + (right - left) / 2; 
-            
+            int mitad = left + (right - left) / 2;
+    
             if (personas[mitad].getEdad() == edad) {
-                return mitad;  
+                return mitad;
             }
-            if (personas[mitad].getEdad() < edad) {
-                left = mitad + 1;
-            } 
-            else {
-                right = mitad - 1;
+                if (personas[mitad].getEdad() < edad) { 
+                right = mitad - 1; 
+            } else {
+                left = mitad + 1; 
             }
         }
-        return -1;  
+        return -1;
     }
+    
 
     //Metodo Inserccion para ordenar por nombre de orden ascendente
     public void sortByNombreInsertion(Persona[] personas) {

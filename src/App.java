@@ -73,18 +73,16 @@ public class App {
                 }
 
                 //Buscar personas por edad
-                int anioBusqueda1 = 25;
-                //int anioBusqueda1 = 70;
-                int indice = controller.searchBinaryByEdad(personas, anioBusqueda1);
-
-                System.out.println("\n Resultado de la busqueda: ");
-                if(indice != -1){
-                        System.out.println("Persona encontrada: " + personas[indice].getNombre() 
-                        + " - " + personas[indice].getEdad());
-                } else{
-                        System.out.println("Nose encontro a la persona con la edad de " + anioBusqueda1);
+                int[] edades = { 25, 70 };
+                for (int edad : edades) {
+                    int indice = controller.searchBinaryByEdad(personas, edad);
+                    if (indice != -1) {
+                        System.out.println("Persona encontrada: " +  personas[indice].getNombre() 
+                        + " con la edad de " + personas[indice].getEdad() + " en posición " + indice);
+                    } else {
+                        System.out.println("Persona con edad " + edad + " no encontrada.");
+                    }
                 }
-                
                 //Ordenar personas por nombre de orden ascendente
                 controller.sortByNombreInsertion(personas);
 
@@ -94,17 +92,15 @@ public class App {
                 }
 
                 //Buscar personas por nombre
-                String nombreBusqueda1 = "Anais";
-                //String nombreBusqueda1 = "Miguel";
-                
-                int indice2 = controller.searchBinaryByNombre(personas, nombreBusqueda1);
-                
-                System.out.println("\n Resultado de la busqueda: ");
-                if(indice2 != -1){
-                        System.out.println("Persona encontrada: " + personas[indice2].getNombre() 
-                        + " - " + personas[indice2].getEdad());
-                } else{
-                        System.out.println("Nose encontro a la persona con la edad de " + nombreBusqueda1);
+                String[] nombres = { "Anais", "Miguel" };
+                for (String nombre : nombres) {
+                     int indice = controller.searchBinaryByNombre(personas, nombre);
+                     if (indice != -1) {
+                       System.out.println("Persona encontrada con nombre " + nombre + ": " +
+                       personas[indice].getNombre() + " " + personas[indice].getEdad() + " años en posición " + indice);
+                    } else {
+                       System.out.println("Persona con nombre " + nombre + " no encontrada.");
+                    }
                 }
                 
         }
